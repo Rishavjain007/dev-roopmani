@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Projects | DEV ROOPMANI PRIVATE LIMITED</title>
+    <meta name="description" content="Explore our completed and ongoing infrastructure projects including highways, bridges, urban roads and more across India.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Yellowtail&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <i class="fa-solid fa-road"></i> DEV <span>ROOPMANI</span>
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Home</a> / <span>Projects</span>
+        </div>
+    </section>
+
+    <!-- Hero -->
+    <section class="page-hero" style="background-image: linear-gradient(rgba(26, 37, 47, 0.75), rgba(26, 37, 47, 0.75)), url('https://picsum.photos/seed/projecthero/1920/1080');">
+        <div class="container">
+            <h1>Our Projects</h1>
+            <p>Building India's Infrastructure - One Project at a Time</p>
+        </div>
+    </section>
+
+    <!-- Projects Gallery -->
+    <section class="projects-section">
+        <div class="container">
+            <div class="services-header">
+                <h2>Project Portfolio</h2>
+                <p>
+                    Explore our diverse portfolio of completed and ongoing infrastructure projects across India. Each project showcases our commitment to quality, innovation, and timely delivery.
+                </p>
+            </div>
+
+            <!-- Project Filters -->
+            <div style="text-align: center; margin-bottom: 40px;">
+                <button class="btn filter-btn active" data-filter="all">All Projects</button>
+                <button class="btn filter-btn" data-filter="highway">Highways</button>
+                <button class="btn filter-btn" data-filter="bridge">Bridges</button>
+                <button class="btn filter-btn" data-filter="urban">Urban Roads</button>
+                <button class="btn filter-btn" data-filter="rural">Rural Roads</button>
+            </div>
+
+            <div class="project-grid">
+                <!-- Highway Projects -->
+                <div class="project-card" data-category="highway">
+                    <img src="https://picsum.photos/seed/highway1/400/300" alt="National Highway Expansion">
+                    <div class="project-overlay">
+                        <h4>National Highway NH-48</h4>
+                        <p>6-Lane Expressway | 120 KM | Completed 2022</p>
+                        <p style="font-size: 0.8rem; margin-top: 5px;">Delhi-Jaipur Section</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="highway">
+                    <img src="https://picsum.photos/seed/highway2/400/300" alt="State Highway">
+                    <div class="project-overlay">
+                        <h4>State Highway SH-12</h4>
+                        <p>4-Lane Highway | 85 KM | Completed 2021</p>
+                        <p style="font-size: 0.8rem; margin-top: 5px;">Uttar Pradesh</p>
+                    </div>
+                </div>
+
+                <!-- Bridge Projects -->
+                <div class="project-card" data-category="bridge">
+                    <img src="https://picsum.photos/seed/bridge1/400/300" alt="River Bridge">
+                    <div class="project-overlay">
+                        <h4>Ganga River Bridge</h4>
+                        <p>Cable-Stayed Bridge | 2.5 KM | Completed 2023</p>
+                        <p style="font-size: 0.8rem; margin-top: 5px;">Bihar</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="bridge">
+                    <img src="https://picsum.photos/seed/bridge2/400/300" alt="Flyover Project">
+                    <div class="project-overlay">
+                        <h4>City Center Flyover</h4>
+                        <p>3-Level Flyover | 4.2 KM | Ongoing</p>
+                        <p style="font-size: 0.8rem; margin-top: 5px;">Mumbai</p>
+                    </div>
+                </div>
+
+                <!-- Urban Road Projects -->
+                <div class="project-card" data-category="urban">
+                    <img src="https://picsum.photos/seed/urban1/400/300" alt="Smart City Roads">
+                    <div class="project-overlay">
+                        <h4>Smart City Roads</h4>
+                        <p>Complete Road Network | 45 KM | Completed 2022</p>
+                        <p style="font-size: 0.8rem; margin-top: 5px;">Surat Smart City</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="urban">
+                    <img src="https://picsum.photos/seed/urban2/400/300" alt="Industrial Zone">
+                    <div class="project-overlay">
+                        <h4>Industrial Zone Access</h4>
+                        <p>Heavy Duty Roads | 32 KM | Completed 2021</p>
+                        <p style="font-size: 0.8rem; margin-top: 5px;">Gujarat</p>
+                    </div>
+                </div>
+
+                <!-- Rural Road Projects -->
+                <div class="project-card" data-category="rural">
+                    <img src="https://picsum.photos/seed/rural1/400/300" alt="Rural Connectivity">
+                    <div class="project-overlay">
+                        <h4>Rural Road Connectivity</h4>
+                        <p>PMGSY Project | 150 KM | Completed 2023</p>
+                        <p style="font-size: 0.8rem; margin-top: 5px;">Madhya Pradesh</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="rural">
+                    <img src="https://picsum.photos/seed/rural2/400/300" alt="Hill Road">
+                    <div class="project-overlay">
+                        <h4>Hill Road Development</h4>
+                        <p>Mountain Roads | 65 KM | Ongoing</p>
+                        <p style="font-size: 0.8rem; margin-top: 5px;">Uttarakhand</p>
+                    </div>
+                </div>
+
+                <!-- Additional Projects -->
+                <div class="project-card" data-category="highway">
+                    <img src="https://picsum.photos/seed/highway3/400/300" alt="Expressway">
+                    <div class="project-overlay">
+                        <h4>Eastern Expressway</h4>
+                        <p>8-Lane Expressway | 95 KM | Completed 2020</p>
+                        <p style="font-size: 0.8rem; margin-top: 5px;">West Bengal</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="bridge">
+                    <img src="https://picsum.photos/seed/bridge3/400/300" alt="Rail Over Bridge">
+                    <div class="project-overlay">
+                        <h4>Rail Over Bridge</h4>
+                        <p>ROB Construction | 1.8 KM | Completed 2022</p>
+                        <p style="font-size: 0.8rem; margin-top: 5px;">Tamil Nadu</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="urban">
+                    <img src="https://picsum.photos/seed/urban3/400/300" alt="City Bypass">
+                    <div class="project-overlay">
+                        <h4>City Bypass Road</h4>
+                        <p>Ring Road | 28 KM | Ongoing</p>
+                        <p style="font-size: 0.8rem; margin-top: 5px;">Bangalore</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="rural">
+                    <img src="https://picsum.photos/seed/rural3/400/300" alt="Village Roads">
+                    <div class="project-overlay">
+                        <h4>Village Road Network</h4>
+                        <p>Connectivity Project | 120 KM | Completed 2023</p>
+                        <p style="font-size: 0.8rem; margin-top: 5px;">Rajasthan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Stats -->
+    <section class="features">
+        <div class="container">
+            <div class="services-grid" style="grid-template-columns: repeat(4, 1fr);">
+                <div class="feature-item">
+                    <h3 style="font-size: 2.5rem; margin-bottom: 10px;">150+</h3>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="feature-item">
+                    <h3 style="font-size: 2.5rem; margin-bottom: 10px;">1200+</h3>
+                    <p>Kilometers Constructed</p>
+                </div>
+                <div class="feature-item">
+                    <h3 style="font-size: 2.5rem; margin-bottom: 10px;">25+</h3>
+                    <p>Bridges Built</p>
+                </div>
+                <div class="feature-item">
+                    <h3 style="font-size: 2.5rem; margin-bottom: 10px;">15+</h3>
+                    <p>States Covered</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ongoing Projects -->
+    <section class="projects-section" style="background-color: var(--white);">
+        <div class="container">
+            <div class="services-header">
+                <h2>Ongoing Projects</h2>
+                <p>Current projects under construction with expected completion dates</p>
+            </div>
+
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="https://picsum.photos/seed/ongoing1/400/300" alt="Coastal Highway">
+                    <div class="project-overlay">
+                        <h4>Coastal Highway</h4>
+                        <p>Phase 2 | 75 KM | Completion: Dec 2024</p>
+                        <p style="font-size: 0.8rem; margin-top: 5px;">Goa - Maharashtra Border</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="https://picsum.photos/seed/ongoing2/400/300" alt="Metro Extension">
+                    <div class="project-overlay">
+                        <h4>Metro Extension Roads</h4>
+                        <p>Access Roads | 18 KM | Completion: Aug 2024</p>
+                        <p style="font-size: 0.8rem; margin-top: 5px;">Delhi NCR</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="https://picsum.photos/seed/ongoing3/400/300" alt="Industrial Corridor">
+                    <div class="project-overlay">
+                        <h4>Industrial Corridor</h4>
+                        <p>DMIC Project | 42 KM | Completion: Mar 2025</p>
+                        <p style="font-size: 0.8rem; margin-top: 5px;">Gujarat</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="https://picsum.photos/seed/ongoing4/400/300" alt="Tourist Road">
+                    <div class="project-overlay">
+                        <h4>Tourist Circuit Road</h4>
+                        <p>Heritage Circuit | 55 KM | Completion: Nov 2024</p>
+                        <p style="font-size: 0.8rem; margin-top: 5px;">Rajasthan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <i class="fa-solid fa-road"></i> DEV ROOPMANI
+                    </a>
+                    <p>Building India's infrastructure with commitment, quality, and integrity. Your trusted partner in construction.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Road Construction</a></li>
+                        <li><a href="services.html">Bridge Building</a></li>
+                        <li><a href="services.html">Urban Planning</a></li>
+                        <li><a href="services.html">Maintenance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 DEV ROOPMANI PRIVATE LIMITED. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+    
+    <!-- Project Filter Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    const filterValue = button.getAttribute('data-filter');
+                    
+                    projectCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 10);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+
+            // Initialize project card animations
+            projectCards.forEach(card => {
+                card.style.opacity = "0";
+                card.style.transform = "translateY(20px)";
+                card.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+                
+                // Trigger animation after a slight delay for staggered effect
+                setTimeout(() => {
+                    card.style.opacity = "1";
+                    card.style.transform = "translateY(0)";
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
