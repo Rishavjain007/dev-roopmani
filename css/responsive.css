@@ -245,3 +245,77 @@
         text-decoration: none;
     }
 }
+
+/* Small responsive + mobile-menu usability fixes */
+
+/* Make hamburger easier to tap and always be above the nav */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    z-index: 1002;             /* ensures it's above nav when menu slides in */
+    background: transparent;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* When menu is open, lock body scroll */
+body.nav-open {
+    overflow: hidden;
+}
+
+/* Mobile nav layout (keeps your existing behaviour) */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 80px;
+        height: calc(100vh - 80px);
+        background-color: var(--white);
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        padding-top: 50px;
+        transition: right 0.35s cubic-bezier(.2,.9,.2,1);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        z-index: 1001;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+    }
+
+    /* Make anchors full-width tappable areas */
+    .nav-links a {
+        display: block;
+        padding: 14px 0;
+        font-size: 1.05rem;
+    }
+
+    /* Ensure the hamburger sits on the right and is accessible */
+    nav { position: relative; }
+    .hamburger { position: relative; right: 0; }
+}
+
+/* If header covers content, add top offset to anchor targets */
+:target {
+    scroll-margin-top: 90px;
+}
+
+/* Reduced motion respect */
+@media (prefers-reduced-motion: reduce) {
+    .nav-links, .project-card img, .service-card {
+        transition: none !important;
+        animation: none !important;
+    }
+}

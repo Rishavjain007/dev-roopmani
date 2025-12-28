@@ -214,3 +214,156 @@ document.addEventListener('DOMContentLoaded', function() {
         counter.innerText = "0";
     });
 });
+
+
+// Fixed & improved mobile menu, counters and animations
+document.addEventListener('DOMContentLoaded', function() {
+    // Elements
+    const hamburger = document.getElementById('hamburger');        // button/hamburger control
+    const navLinksEl = document.getElementById('navLinks');       // the UL (mobile menu)
+    const navAnchors = document.querySelectorAll('#navLinks a');  // anchor links inside nav
+    const navItems = document.querySelectorAll('.nav-links li a'); // legacy selector (keeps compatibility)
+
+    // Safety: ensure variables exist
+    if (hamburger && navLinksEl) {
+        // Ensure hamburger is keyboard-accessible: toggle aria-expanded
+        if (!hamburger.hasAttribute('role')) hamburger.setAttribute('role', 'button');
+        if (!hamburger.hasAttribute('aria-expanded')) hamburger.setAttribute('aria-expanded', 'false');
+
+        hamburger.addEventListener('click', () => {
+            const isActive = navLinksEl.classList.toggle('active');
+
+            // toggle icon classes (FontAwesome)
+            const icon = hamburger.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-bars', !isActive);
+                icon.classList.toggle('fa-xmark', isActive);
+            }
+
+            // update accessibility state
+            hamburger.setAttribute('aria-expanded', String(isActive));
+
+            // optionally lock body scroll when menu is open
+            document.body.classList.toggle('nav-open', isActive);
+        });
+
+        // Close mobile menu when any nav link is clicked (mobile UX)
+        const closeMenu = () => {
+            if (navLinksEl.classList.contains('active')) {
+                navLinksEl.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+                const icon = hamburger.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
+                document.body.classList.remove('nav-open');
+            }
+        };
+
+        navAnchors.forEach(a => a.addEventListener('click', closeMenu));
+        navItems.forEach(item => item.addEventListener('click', closeMenu)); // compatibility
+    }
+
+    // Counter Animation (improved, non-blocking)
+    const counters = document.querySelectorAll('.counter');
+    let countersAnimated = false;
+
+    function animateCounters() {
+        counters.forEach(counter => {
+            const target = Number(counter.getAttribute('data-target')) || 0;
+            const duration = 1200;
+            const start = 0;
+            const startTime = performance.now();
+            const isDecimal = String(counter.getAttribute('data-target')).includes('.');
+
+            function step(now) {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const value = Math.floor(easeOutCubic(progress) * target);
+                counter.innerText = isDecimal ? (value / 10).toFixed(1) : value;
+                if (progress < 1) requestAnimationFrame(step);
+                else counter.innerText = isDecimal ? (target).toFixed(1) : String(target);
+            }
+            requestAnimationFrame(step);
+        });
+    }
+
+    function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+
+    // IntersectionObserver to trigger counters once
+    if (counters.length > 0) {
+        const statsSection = document.querySelector('.stats') || document.querySelector('.about') || document.querySelector('.experience');
+        if (statsSection) {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !countersAnimated) {
+                        animateCounters();
+                        countersAnimated = true;
+                        obs.disconnect();
+                    }
+                });
+            }, { threshold: 0.35 });
+            observer.observe(statsSection);
+        } else {
+            // fallback: animate after small delay
+            setTimeout(() => { if (!countersAnimated) { animateCounters(); countersAnimated = true; } }, 1200);
+        }
+    }
+
+    // IntersectionObservers for project/service card reveals (keeps existing behavior)
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.project-card, .service-card').forEach(card => {
+        card.style.opacity = "0";
+        card.style.transform = "translateY(20px)";
+        card.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+        revealObserver.observe(card);
+    });
+
+    // Smooth scroll for internal anchors (only on same page anchors)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href && href.length > 1 && href.startsWith('#')) {
+                const target = document.getElementById(href.slice(1));
+                if (target) {
+                    e.preventDefault();
+                    const offset = 72; // header height
+                    const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            }
+        });
+    });
+
+    // Highlight active nav link while scrolling
+    const sections = document.querySelectorAll('section[id]');
+    const allNavLinks = document.querySelectorAll('#navLinks a, .nav-links a');
+
+    function highlightNavLink() {
+        const scrollPosition = window.scrollY + 120;
+        sections.forEach(section => {
+            const top = section.offsetTop;
+            const height = section.offsetHeight;
+            const id = section.getAttribute('id');
+            if (scrollPosition >= top && scrollPosition < top + height) {
+                allNavLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === `#${id}` || link.getAttribute('href') === `${id}.html`);
+                });
+            }
+        });
+    }
+    window.addEventListener('scroll', highlightNavLink, { passive: true });
+
+    // Initialize counters visually to 0
+    document.querySelectorAll('.counter').forEach(c => c.innerText = "0");
+});
