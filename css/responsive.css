@@ -302,9 +302,11 @@ body.nav-open {
         font-size: 1.05rem;
     }
 
+
     /* Ensure the hamburger sits on the right and is accessible */
     nav { position: relative; }
     .hamburger { position: relative; right: 0; }
+   
 }
 
 /* If header covers content, add top offset to anchor targets */
